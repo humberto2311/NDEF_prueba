@@ -2,9 +2,13 @@ const express = require('express');
 require('dotenv').config();
 const connectDB = require('./src/database');
 const profileRoutes = require('./src/routers');
+const corsConfig = require('./src/corsConfig');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Middleware CORS
+app.use(corsConfig);
 
 // Middleware para parsear JSON
 app.use(express.json());

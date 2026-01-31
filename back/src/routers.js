@@ -1,29 +1,13 @@
-const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
+const profileController = require('./profileController');
 
-const ProfileSchema = new mongoose.Schema({
-  // El ID que grabarás en el chip o emularás (ej: "user_001")
-  nfcId: { type: String, required: true, unique: true },
-  
-  fullName: { type: String, required: true },
-  jobTitle: String,
-  bio: String,
-  avatarUrl: String,
-  
-  // Objeto para datos de contacto
-  contact: {
-    email: String,
-    phone: String,
-    website: String
-  },
-  
-  // Array de redes sociales para que sea dinámico
-  socialLinks: [{
-    platform: String, // ej: 'linkedin', 'instagram'
-    url: String
-  }],
-  
-  active: { type: Boolean, default: true },
-  createdAt: { type: Date, default: Date.now }
-});
+// Rutas para perfiles
+router.get('/profiles', profileController.getAllProfiles);
+router.get('/profiles/:id', profileController.getProfileById);
+router.get('/profiles/nfc/:nfcId', profileController.getProfileByNFC);
+router.post('/profiles', profileController.createProfile);
+router.put('/profiles/:id', profileController.updateProfile);
+router.delete('/profiles/:id', profileController.deleteProfile);
 
-module.exports = mongoose.model('Profile', ProfileSchema);
+module.exports = router;

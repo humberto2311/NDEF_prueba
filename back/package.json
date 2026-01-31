@@ -1,6 +1,15 @@
 {
+  "name": "nfc-backend",
+  "version": "1.0.0",
+  "description": "Backend para gestión de perfiles NFC",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.1.5"
+    "mongoose": "^9.1.5",
+    "dotenv": "^16.0.0"
   }
 }

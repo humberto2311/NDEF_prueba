@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno (Seguridad)
+.env
+.env.local
+.env.test
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+
+# Ignorar TODO el contenido de la carpeta "1"
+# Pero manteniendo la carpeta en el repositorio si es necesario
+1/*
+
+# Si quieres ignorar carpetas específicas dentro de "1" pero no los archivos sueltos:
+# 1/*/

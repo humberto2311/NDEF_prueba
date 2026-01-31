@@ -6,6 +6,9 @@ const profileRoutes = require('./src/routers');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middleware para parsear JSON
+app.use(express.json());
+
 // Conectar a la base de datos
 connectDB();
 
